@@ -1,0 +1,16 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_DB: upi_warehouse
+      POSTGRES_USER: upi_user
+      POSTGRES_PASSWORD: upi_password
+    ports: ["5432:5432"]
+    volumes: [upi_pgdata:/var/lib/postgresql/data]
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U upi_user -d upi_warehouse"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+volumes:
+  upi_pgdata:
