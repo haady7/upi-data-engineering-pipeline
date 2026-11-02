@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.pytest_cache/
+.coverage
+data/raw/*.csv
+data/processed/*.parquet
+reports/*.json
